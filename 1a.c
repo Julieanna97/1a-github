@@ -10,10 +10,12 @@
 int main(int argc, char **argv)
 {
 	char buf[30]; /* a buffer that holds some characters */
+	argv[1] = "Example"; 
 
-	if( argc == 2) {
+	if(strlen(argv[1]) <  sizeof(buf)) // replaced (argc == 2)
+	{
 		printf("%s\n",argv[1]);
-		strcpy(buf,argv[1]);
+		strncpy(buf,argv[1], sizeof(buf)); // replaced strcpy() to strncpy()
 	} else {
 		strcpy(buf,"what can possibly go wrong?");
 	}
